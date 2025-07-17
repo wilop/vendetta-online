@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=Application
+Name=Vendetta Online
+GenericName=Video Game
+Comment=3D space massively multiplayer online role-playing game.
+Exec=vendetta
+Path=/usr/bin
+Icon=vendetta
+Terminal=false
+MimeType=application/x-executable
+Categories=Game;
+Keywords=vendetta;online;game;mmorpg;
+StartupWMClass=update.rlb
+X-Desktop-File-Install-Version=0.28

@@ -1,0 +1,60 @@
+
+# Function to get the pacman current user.
+get_user_name(){
+
+   local username=$(logname)
+
+    if [[ -z '$username' ]]; then
+        echo "User cannot be empty !!!"
+        return 0
+    fi
+
+    echo $username
+}
+
+# Function to get the HOME directory from pacman current user.
+get_user_home(){
+
+    local username=$(get_user_name)
+
+    if [[ -z '$username' && '$username' == 'root' ]]; then
+        echo "User cannot be root !!!"
+        return 0
+    fi
+
+   echo $(getent passwd ${username} | cut -d: -f6)
+}
+
+# Move the /opt/vendetta-online to ~/.vendetta and changes its owner pacman current user.
+post_install(){
+
+    echo "Vendetta Online $1"
+
+    local userhome=$(get_user_home)
+    local username=$(get_user_name)
+
+    if [[ -n '$userhome' ]]; then
+        echo "Creating ${userhome}/.vendetta ..."
+        mv -f /opt/vendetta-online/ ${userhome}/.vendetta
+        chown -hR ${username}:${username} ${userhome}/.vendetta
+        echo "Done !!!"
+    else
+        echo "Directory ~/.vendetta/ not created !!!"
+    fi
+}
+
+# Remove ~/.vendetta/.
+post_remove(){
+
+    echo "Vendetta Online $1"
+
+    local userhome=$(get_user_home)
+
+    if [[ -d $userhome ]]; then
+        echo "Removing ${userhome}/.vendetta/ ..."
+        rm -rf "${userhome}/.vendetta/" || :
+        echo "Done !!!"
+    else
+        echo "Directory ~/.vendetta/ not removed !!!"
+    fi
+}

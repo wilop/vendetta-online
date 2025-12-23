@@ -1,5 +1,5 @@
 pkgname=vendetta-online
-pkgver=1.8.727
+pkgver=1.8.754
 pkgrel=1
 pkgdesc='Vendetta Online is a 3D space massively multiplayer online role-playing game.'
 arch=('x86_64')

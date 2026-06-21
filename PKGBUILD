@@ -1,5 +1,5 @@
 pkgname=vendetta-online
-pkgver=1.8.754
+pkgver=1.8.766
 pkgrel=1
 pkgdesc='Vendetta Online is a 3D space massively multiplayer online role-playing game.'
 arch=('x86_64')
@@ -9,7 +9,7 @@ depends=(glibc gtk3)
 source=("https://cdn.vendetta-online.com/2024/New/vendetta-linux-amd64-installer.sh" "https://vo-wiki.com/vendettaicon.png" "vendetta-online.desktop")
 sha256sums=('e8e9f90a362bf7861b5f78cc2abafd93dbf47056f2fe4af717eb99b37a2564ee'
             'cc7ae84249dbf5351fe7a7f0ca33ed4f0faf5a15ade788a44efbd0dbc1ab7617'
-            'SKIP'
+            '041c180235f9be4de7a9184a0f327bba8cd1f7b506b426108cd233b4d7eedb6b'
 )
 noextract=(vendetta-linux-amd64-installer.sh)
 install=$pkgname.install

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ ! -d "$HOME/.vendetta"  ]; then
+    echo "Creating game data directory in $HOME/.vendetta..."
+    cp -R /opt/vendetta-online/ "$HOME/.vendetta"
+fi
+
+exec /usr/bin/vendetta
